@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 10px;
+}
+
+main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+img {
+  display: block;
+}
+
+.slider {
+  position: relative;
+  transition: all 0.5s;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.slide-img {
+  position: relative;
+}
+
+.slider-img {
+  width: 100vw;
+}
+
+.slide-content {
+  padding: 4rem 4rem 2rem 4rem;
+  text-align: left;
+  position: relative;
+}
+
+.slider-title {
+  font-size: clamp(2rem, 8vw, 4rem);
+}
+
+.slide-content p {
+  font-size: 1.3rem;
+  margin: 3rem 0 3rem 0;
+  line-height: 2.4rem;
+  opacity: 0.4;
+}
+
+.slide-content .btn {
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #111;
+  letter-spacing: 1rem;
+  transition: all 650ms ease-in;
+}
+
+.slider-buttons {
+  display: flex;
+  position: absolute;
+  right: 0%;
+  bottom: 0;
+}
+
+#prevBtn,
+#nextBtn {
+  border: none;
+  outline: none;
+  padding: 2rem;
+  background-color: #000;
+  cursor: pointer;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background-color: hsl(0, 0%, 27%);
+}
+
+.slide-content .btn img {
+  margin-left: 3rem;
+}
+
+.slide-content .btn:hover {
+  opacity: 0.6;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  height: 250px;
+}
+
+.about-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content {
+  padding: 0 5rem;
+}
+
+.about-content h1 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1rem;
+  text-transform: uppercase;
+}
+
+.about-content p {
+  opacity: 0.5;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9999;
+}
+
+.nav-logo {
+  order: 2;
+  margin-top: 2rem;
+  margin-left: 80%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.menu-icons {
+  cursor: pointer;
+}
+
+.menu-icons.open {
+  margin: 2rem 0 0 2rem;
+}
+
+.nav-list {
+  padding: 0 2rem;
+  margin: 0;
+  width: 100%;
+  height: 8rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: -26rem;
+  list-style: none;
+  transition: all 0.5s;
+}
+
+.nav-list.active {
+  top: 0;
+}
+
+.slider.nav-active {
+  filter: brightness(50%);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: 5%;
+  width: 0%;
+  height: 0.3rem;
+  background-color: #000;
+  transition: all 0.5s;
+}
+
+.nav-link:hover::before {
+  width: 80%;
+}
+
+@media screen and (min-width: 1330px) {
+  .slide {
+    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+  }
+
+  .slide-content {
+    width: 70%;
+    margin-left: 20rem;
+    padding: 0 5rem;
+  }
+
+  .slider-img {
+    width: 90rem !important;
+    height: 50rem;
+    object-fit: cover;
+  }
+
+  .slide > div {
+    flex-shrink: 1;
+  }
+
+  .slider-img {
+    width: 50vw;
+  }
+
+  .slider-buttons {
+    right: -31.2%;
+  }
+}
+
+@media screen and (min-width: 999px) {
+  .nav-list {
+    width: initial;
+    height: initial;
+    background-color: transparent;
+    top: 4%;
+    left: 10%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav-list a {
+    font-size: 1.4rem;
+    margin-left: 2rem;
+    color: #fff;
+  }
+
+  .nav-link::before {
+    background-color: #fff;
+  }
+
+  .menu-icons {
+    display: none;
+  }
+
+  nav {
+    padding: 0 2rem;
+    align-items: center;
+  }
+
+  .nav-logo {
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-container img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+  }
+
+  .about-content {
+    padding: 4rem 2rem;
+    line-height: 2rem;
+  }
+}
+
+/* @media screen and (min-width: 1200px) {
+  .slide-content {
+    margin-right: 25rem;
+  }
+} */
